@@ -4,7 +4,13 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity
+@Entity(name = "Student")
+@Table(
+        name = "student",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "student_email_unique", columnNames = "email")
+        }
+)
 public class Student {
     @Id
     @GeneratedValue(
@@ -33,7 +39,7 @@ public class Student {
 
     @Column(name = "email",
             nullable = false,
-            unique = true,
+            //unique = true,
             columnDefinition = "TEXT")
     private String email;
 
