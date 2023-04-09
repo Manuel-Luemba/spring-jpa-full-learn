@@ -22,10 +22,24 @@ public class Student {
     )
     private Long id;
 
-    @Column
+    @Column(name = "first_name",
+    nullable = false,
+    columnDefinition = "TEXT")
     private String firstName;
+    @Column(name = "last_name",
+            nullable = false,
+            columnDefinition = "TEXT")
     private String lastName;
+
+    @Column(name = "email",
+            nullable = false,
+            unique = true,
+            columnDefinition = "TEXT")
     private String email;
+
+    @Column(name = "age",
+            nullable = false
+            )
     private Integer age;
 
     public Student() {
