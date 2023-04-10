@@ -22,6 +22,7 @@ public class Category {
         this.id = id;
     }
 
+    private  String category;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parent_id")
@@ -29,4 +30,8 @@ public class Category {
 
     @OneToMany(mappedBy = "parent")
     private Collection<Category> children;
+
+    @ManyToMany(mappedBy = "categories")
+    private Collection<Book> books;
+
 }

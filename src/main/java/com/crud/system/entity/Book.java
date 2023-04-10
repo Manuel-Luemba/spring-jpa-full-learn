@@ -3,6 +3,7 @@ package com.crud.system.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -31,5 +32,13 @@ public  class Book {
     private Photo photo;
 
 
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "books_categories",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Collection<Category> categories;
 
 }
