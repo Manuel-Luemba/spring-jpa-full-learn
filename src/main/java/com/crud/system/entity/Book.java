@@ -3,6 +3,8 @@ package com.crud.system.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public  class Book {
     @Id
@@ -13,8 +15,17 @@ public  class Book {
     )@GeneratedValue(
             strategy = GenerationType.SEQUENCE, generator = "book_sequence"
     )
+    @Column(name = "book_id")
     private Long Id;
+
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private Integer page;
+    private Double rating;
+    @Column(nullable = false)
+    private Date publishedDate;
+
+
 
 }
