@@ -26,6 +26,10 @@ public  class Book {
     @Column(nullable = false)
     private Date publishedDate;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "photo_id")
+    private Photo photo;
+
 
 
 }

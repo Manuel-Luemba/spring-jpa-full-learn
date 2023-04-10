@@ -15,4 +15,7 @@ public class Photo {
     @Column(name = "photo_id")
     private  Long id;
     private  Integer url_small;
+
+    @OneToOne(mappedBy = "photo")
+    private Book book;
 }
